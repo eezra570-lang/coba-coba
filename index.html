@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Ucapan Syukur - XXX</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#B89970', secondary: '#4A4A4A', background: '#FDFBF7' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Lato"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .glass-panel { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); }
+        .music-btn { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(184, 153, 112, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(184, 153, 112, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(184, 153, 112, 0); }
+        }
+        body { background-color: #FDFBF7; }
+    </style>
+</head>
+<body class="font-sans text-secondary antialiased overflow-x-hidden">
+
+    <!-- Audio Element -->
+    <audio id="bg-music" loop>
+        <source src="Glenn Fredly - Kasih Putih (Saxophone Cover by Dori Wirawan).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Music Button -->
+    <button id="music-toggle" class="fixed bottom-6 right-6 z-50 bg-primary text-white p-4 rounded-full shadow-lg music-btn focus:outline-none">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Hero / Sampul Pembuka -->
+    <header class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('WhatsApp Image 2026-09-13 at 13.15.09.jpeg');">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 text-center text-white px-4 fade-in visible">
+            <p class="uppercase tracking-widest text-sm mb-4">Undangan Ucapan Syukur</p>
+            <h1 class="font-serif text-5xl md:text-7xl mb-6">Keluarga XXX</h1>
+            <p class="text-lg italic mb-8">"Segala puji dan syukur kami panjatkan kepada Tuhan..."</p>
+            <a href="#profile" class="inline-block border border-white px-8 py-3 uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-colors duration-300">Buka Undangan</a>
+        </div>
+    </header>
+
+    <!-- Profil Penyelenggara -->
+    <section id="profile" class="py-20 px-4 md:px-0 bg-background text-center">
+        <div class="max-w-3xl mx-auto fade-in">
+            <h2 class="font-serif text-3xl text-primary mb-6">Yang Bersyukur</h2>
+            <img src="galery_15058851787817273.webp" alt="Profile" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full mx-auto shadow-xl mb-6">
+            <h3 class="font-serif text-2xl font-semibold">XXX & Keluarga</h3>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+                Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada acara ucapan syukur atas [Nama Acara / Tujuan Syukuran XXX].
+            </p>
+        </div>
+    </section>
+
+    <!-- Hitung Mundur (Countdown) -->
+    <section class="py-16 bg-primary text-white text-center px-4">
+        <div class="max-w-4xl mx-auto fade-in">
+            <h2 class="font-serif text-3xl mb-10">Menuju Hari Bahagia</h2>
+            <div id="countdown" class="flex justify-center gap-4 md:gap-8 font-serif">
+                <div class="flex flex-col"><span id="days" class="text-4xl md:text-5xl font-bold">00</span><span class="text-sm mt-2">Hari</span></div>
+                <div class="text-4xl md:text-5xl">:</div>
+                <div class="flex flex-col"><span id="hours" class="text-4xl md:text-5xl font-bold">00</span><span class="text-sm mt-2">Jam</span></div>
+                <div class="text-4xl md:text-5xl">:</div>
+                <div class="flex flex-col"><span id="minutes" class="text-4xl md:text-5xl font-bold">00</span><span class="text-sm mt-2">Menit</span></div>
+                <div class="text-4xl md:text-5xl">:</div>
+                <div class="flex flex-col"><span id="seconds" class="text-4xl md:text-5xl font-bold">00</span><span class="text-sm mt-2">Detik</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Acara -->
+    <section class="py-20 px-4 max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-center fade-in">
+        <div class="flex-1 w-full relative">
+             <img src="galery_15058851787817356.webp" alt="Event Detail" class="w-full rounded-t-full shadow-lg">
+        </div>
+        <div class="flex-1 text-center md:text-left space-y-6">
+            <h2 class="font-serif text-3xl text-primary">Detail Acara</h2>
+            
+            <div class="space-y-2">
+                <p class="font-bold text-xl uppercase">XXX (Tanggal Acara)</p>
+                <p>Pukul: XXX (Waktu Acara)</p>
+                <!-- Integrasi Save to Date -->
+                <a id="save-date-btn" target="_blank" class="text-primary hover:underline font-semibold cursor-pointer"><i class="far fa-calendar-plus mr-2"></i>Simpan ke Kalender</a>
+            </div>
+
+            <div class="space-y-2 pt-4 border-t border-gray-200">
+                <p class="font-bold text-xl">Lokasi Acara</p>
+                <p>XXX (Nama Tempat / Gedung)</p>
+                <p class="text-sm text-gray-500">XXX (Alamat Lengkap Lokasi Acara)</p>
+                <!-- Integrasi Google Maps -->
+                <a href="XXX_LINK_GOOGLE_MAPS_XXX" target="_blank" class="inline-block mt-4 bg-primary text-white px-6 py-2 rounded shadow hover:bg-opacity-90 transition"><i class="fas fa-map-marker-alt mr-2"></i>Buka Google Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri -->
+    <section class="py-10 bg-white">
+        <div class="max-w-6xl mx-auto px-4 columns-2 md:columns-3 gap-4 space-y-4 fade-in">
+            <img src="galery_15058856a8f9d1a68278.jpg" class="w-full rounded shadow" alt="Gallery">
+            <img src="galery_15058851788327581.jpg" class="w-full rounded shadow" alt="Gallery">
+            <img src="galery_15058856a8f9d1ad4326.jpg" class="w-full rounded shadow" alt="Gallery">
+            <img src="galery_15058851787817347.jpg" class="w-full rounded shadow" alt="Gallery">
+        </div>
+    </section>
+
+    <!-- Hadiah / Tanda Kasih -->
+    <section class="py-20 px-4 bg-background text-center fade-in">
+        <h2 class="font-serif text-3xl text-primary mb-4">Ingin memberikan tanda kasih?</h2>
+        <p class="mb-8 text-gray-600 max-w-xl mx-auto">Bagi keluarga dan sahabat yang ingin memberikan tanda kasih, dapat mengirimkannya melalui fitur di bawah ini:</p>
+        
+        <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-panel p-6 rounded-lg shadow-sm border border-gray-100">
+                <i class="fas fa-credit-card text-3xl text-primary mb-4"></i>
+                <h4 class="font-bold mb-2">Transfer Bank</h4>
+                <p class="text-gray-700 font-mono text-lg mb-1">XXX (Nomor Rekening)</p>
+                <p class="text-sm text-gray-500">a.n XXX (Nama Bank & Pemilik)</p>
+            </div>
+            <div class="glass-panel p-6 rounded-lg shadow-sm border border-gray-100">
+                <i class="fas fa-box-open text-3xl text-primary mb-4"></i>
+                <h4 class="font-bold mb-2">Kirim Hadiah</h4>
+                <p class="text-sm text-gray-700">XXX (Alamat Lengkap Pengiriman Kado/Hadiah)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP & Ucapan -->
+    <section class="py-20 bg-gray-50 px-4">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+            <!-- Formulir RSVP -->
+            <div class="glass-panel p-8 rounded-xl shadow-lg fade-in">
+                <h2 class="font-serif text-2xl text-primary mb-6 text-center">Konfirmasi Kehadiran</h2>
+                <form id="rsvp-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Nama Lengkap</label>
+                        <input type="text" name="Nama" required class="w-full border-gray-300 rounded p-2 focus:ring-primary focus:border-primary border">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Kehadiran</label>
+                        <select name="Kehadiran" required class="w-full border-gray-300 rounded p-2 focus:ring-primary focus:border-primary border">
+                            <option value="Hadir">Hadir</option>
+                            <option value="Tidak Hadir">Tidak Hadir</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Jumlah Tamu</label>
+                        <input type="number" name="Jumlah Tamu" min="1" max="10" value="1" required class="w-full border-gray-300 rounded p-2 focus:ring-primary focus:border-primary border">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Ucapan & Doa</label>
+                        <textarea name="Ucapan" rows="3" required class="w-full border-gray-300 rounded p-2 focus:ring-primary focus:border-primary border" placeholder="Tuliskan harapan dan doa..."></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="w-full bg-primary text-white font-bold py-3 rounded hover:bg-opacity-90 transition">Kirim RSVP</button>
+                    <p id="form-msg" class="text-center text-sm mt-2 hidden"></p>
+                </form>
+            </div>
+
+            <!-- Menampilkan Ucapan -->
+            <div class="fade-in">
+                <h2 class="font-serif text-2xl text-primary mb-6 text-center">Ucapan & Doa</h2>
+                <div id="wishes-container" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                    <!-- Pesan akan di-render di sini oleh JavaScript -->
+                    <div class="text-center text-sm text-gray-500 italic py-10">Memuat doa dan ucapan...</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Penutup -->
+    <footer class="bg-secondary text-white py-10 text-center">
+        <h2 class="font-serif text-2xl mb-4">Terima Kasih</h2>
+        <p class="text-sm text-gray-400">Atas doa dan kehadiran Bapak/Ibu/Saudara/i.</p>
+        <p class="mt-6 text-xs text-gray-500">© 2026 XXX. Built with ❤️.</p>
+    </footer>
+
+    <!-- Logic JavaScript -->
+    <script>
+        // --- 1. Konfigurasi Apps Script Web App URL ---
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTyWYp_6iGgwQEp6f8n3Nj-gn8cu2cRt_v6sZFaTul4l9EptmKhfMVRkGLYRMbwVxsDA/exec'; 
+
+        // --- 2. Musik Latar ---
+        const audio = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle');
+        let isPlaying = false;
+        
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) { audio.pause(); musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>'; musicBtn.classList.remove('music-btn'); } 
+            else { audio.play(); musicBtn.innerHTML = '<i class="fas fa-music"></i>'; musicBtn.classList.add('music-btn'); }
+            isPlaying = !isPlaying;
+        });
+
+        // --- 3. Hitung Mundur (Countdown) ---
+        const countDownDate = new Date("2026-12-31T09:00:00").getTime(); 
+        
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "ACARA SEDANG BERLANGSUNG";
+                return;
+            }
+
+            document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+        }, 1000);
+
+        // --- 4. Animasi Fade-In saat Scroll ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+        // --- 5. Generate Google Calendar Save The Date Link ---
+        const calBtn = document.getElementById('save-date-btn');
+        const eventTitle = encodeURIComponent("Ucapan Syukur XXX");
+        const eventDates = "20261231T090000Z/20261231T120000Z"; 
+        const eventDetails = encodeURIComponent("Kehadiran Anda adalah suatu kehormatan. Terima kasih.");
+        const eventLocation = encodeURIComponent("Lokasi Acara XXX");
+        calBtn.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${eventTitle}&dates=${eventDates}&details=${eventDetails}&location=${eventLocation}`;
+
+        // --- 6. Ambil dan Tampilkan Ucapan dari Google Sheets ---
+        function loadWishes() {
+            fetch(SCRIPT_URL)
+                .then(res => res.json())
+                .then(data => {
+                    const container = document.getElementById('wishes-container');
+                    container.innerHTML = '';
+                    if(data.length === 0) {
+                        container.innerHTML = '<p class="text-center text-gray-500 italic">Jadilah yang pertama memberikan ucapan!</p>';
+                    }
+                    data.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'bg-white p-4 rounded shadow-sm border-l-4 border-primary';
+                        div.innerHTML = `<h5 class="font-bold text-sm">${item.nama}</h5><p class="text-gray-600 text-sm mt-1">"${item.ucapan}"</p>`;
+                        container.appendChild(div);
+                    });
+                }).catch(err => { console.error('Error fetching wishes:', err); });
+        }
+        
+        loadWishes();
+
+        // --- 7. Penanganan Form Submit (RSVP AJAX) ---
+        const form = document.forms['rsvp-form'];
+        const btn = document.getElementById('submit-btn');
+        const msg = document.getElementById('form-msg');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+            btn.disabled = true;
+
+            fetch(SCRIPT_URL, { method: 'POST', body: new FormData(form)})
+                .then(response => response.json())
+                .then(data => {
+                    msg.classList.remove('hidden', 'text-red-600');
+                    msg.classList.add('text-green-600');
+                    msg.innerText = "Terima kasih! RSVP & Ucapan Anda berhasil terkirim.";
+                    form.reset();
+                    btn.innerText = 'Kirim RSVP';
+                    btn.disabled = false;
+                    loadWishes(); 
+                })
+                .catch(error => {
+                    msg.classList.remove('hidden', 'text-green-600');
+                    msg.classList.add('text-red-600');
+                    msg.innerText = "Maaf, terjadi kesalahan. Silakan coba lagi.";
+                    btn.innerText = 'Kirim RSVP';
+                    btn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>
